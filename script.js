@@ -1,12 +1,12 @@
 
 //Task 1
 function formatFullName(firstName, LastName){
-    if (firstName && LastName == null){
+    if (firstName == null || LastName == null){
         return "invalid name input"
     }
     let Fname = firstName.charAt(0).toUpperCase() + firstName.slice(1);
     let Lname = LastName.charAt(0).toUpperCase() + LastName.slice(1);
-    return(Lname + " " + Fname)
+    return `${Lname}, ${Fname}`;
 }
 console.log(formatFullName("dimpal", "patil"))
 console.log(formatFullName("dimpal"))
@@ -59,18 +59,15 @@ function refactorCalculateTotalCost(price, quantity, taxRate, discount)
     ) {
         return "Invalid input.";
     }
-    if (discount != null){
-        
-        totalCost = (price * quantity);
-        totalCost =  totalCost - discount;
-        totalCost = totalCost * (1+taxRate);
-        return totalCost;
 
+    let totalCost = price * quantity;
+    if(discount != null){
+        totalCost -= discount;
     }
-    else{
-        totalCost = (price * quantity) * (1 + taxRate)
-        return totalCost ; 
-    }
+
+    totalCost *= (1 + taxRate);
+
+    return totalCost;
 } 
 
 console.log(refactorCalculateTotalCost(20, 2, 0.5, 10 ))
