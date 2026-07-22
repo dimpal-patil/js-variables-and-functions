@@ -26,6 +26,7 @@ function calculateTotalCost(price, quantity, taxRate) {
     return totalCost;
 }
 console.log(calculateTotalCost(20,50,0.9))
+console.log(calculateTotalCost(20,"a",0.9))
 
 //Task 3//
 
